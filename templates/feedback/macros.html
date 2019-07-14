@@ -14,11 +14,11 @@
 {% macro resume_block(content, upload_path, col_size) -%}
     <div id="resume" class="col-md-{{ col_size }}">
         <div class="well">
-            <p><strong>Job Description:</strong></p>
+            <p><strong>Description de l'emploi :</strong></p>
 
             <p>{{ content }}</p>
             <hr>
-            <p><strong>Resume:</strong></p>
+            <p><strong>CV:</strong></p>
 
             <div id="file_upload" class="embed-responsive embed-responsive-16by9">
                 <object class="embed-responsive-item" data="/uploads/{{ upload_path }}"></object>
@@ -45,11 +45,11 @@
 
 {% macro stars(code) -%}
     <span class="star-rating">
-        <input type="radio" name="rating_{{ code }}" value="1" required data-toggle="tooltip" title="poor"><i></i>
-        <input type="radio" name="rating_{{ code }}" value="2" required data-toggle="tooltip" title="okay"><i></i>
-        <input type="radio" name="rating_{{ code }}" value="3" required data-toggle="tooltip" title="fair"><i></i>
-        <input type="radio" name="rating_{{ code }}" value="4" required data-toggle="tooltip" title="good"><i></i>
-        <input type="radio" name="rating_{{ code }}" value="5" required data-toggle="tooltip" title="excellent"><i></i>
+        <input type="radio" name="rating_{{ code }}" value="1" required data-toggle="tooltip" title="Médiocre"><i></i>
+        <input type="radio" name="rating_{{ code }}" value="2" required data-toggle="tooltip" title="Ok"><i></i>
+        <input type="radio" name="rating_{{ code }}" value="3" required data-toggle="tooltip" title="Correct"><i></i>
+        <input type="radio" name="rating_{{ code }}" value="4" required data-toggle="tooltip" title="Bien"><i></i>
+        <input type="radio" name="rating_{{ code }}" value="5" required data-toggle="tooltip" title="Excellent"><i></i>
     </span>
     {{ stars_help() }}
 {%- endmacro %}
@@ -68,11 +68,11 @@
           data-html="true"
           title="<span>
 <p><strong>Star Ratings:</strong><br/>
-1 Star  = Poor<br/>
-2 Stars = Okay<br/>
-3 Stars = Fair<br/>
-4 Stars = Good<br/>
-5 Stars = Excellent</p></span>">
+1 Étoile  = Médiocre<br/>
+2 Étoiles = Ok<br/>
+3 Étoiles = Correct<br/>
+4 Étoiles = Bien<br/>
+5 Étoiles = Excellent</p></span>">
     </span>
 {%- endmacro %}
 

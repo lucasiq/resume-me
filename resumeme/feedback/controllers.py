@@ -1,3 +1,4 @@
+# coding=utf-8
 from flask import Blueprint, render_template, request, flash, redirect, get_flashed_messages, message_flashed
 from flask.ext.login import (current_user, login_required)
 from mongoengine import Q as db_query
@@ -18,16 +19,16 @@ feedback = Blueprint('feedback', __name__, template_folder='templates')
 @feedback.route('/review/<state>')
 @login_required
 def test(state):
-    flash("Your review has been saved.")
+    flash("Votre critique a été enregistré.")
     if state == "saved":
         templateData = {
-            'first_message': "Thank you for rating your feedback!",
+            'first_message': "Merci d’avoir noté votre feedback !",
             'second_message': ""
         }
     elif state == 'saved_and_sent':
         templateData = {
-            'first_message': "Thank you for rating your feedback!",
-            'second_message': "And also thank you for supporting your volunteer!"
+            'first_message': "Merci d’avoir noté votre feedback !",
+            'second_message': "Et merci aussi de supporter votre bénévole !"
         }
     else:
         return render_template('404.html')
@@ -122,9 +123,9 @@ def volunteer_add_feedback(resume_id):
 
         except ValidationError as e:
             print "Error:", e
-            flash('Fill out all fields')
+            flash('Remplir tous les champs')
             template_data = {
-                'title': 'Give Feedback',
+                'title': 'Donner feedback',
                 'content': None,
                 'resume': models.Resume.objects().with_id(resume_id)
             }
@@ -135,7 +136,7 @@ def volunteer_add_feedback(resume_id):
 
     else:
         template_data = {
-            'title': 'Give Feedback',
+            'title': 'Donner Feedback',
             'content': None,
             'resume': models.Resume.objects().with_id(resume_id)
         }
@@ -157,7 +158,7 @@ def entry_page(resume_id, feedback_id, state="view"):
         if state == "saved":
             flash('Feedback has been saved')
 
-            subject = "[review-me] New feedback for " + resume.title + " is available"
+            subject = "[RevueCV] Nouveau feedback pour " + resume.title + " disponible"
             host_url = request.url_root
             user = resume.user
 
@@ -170,7 +171,7 @@ def entry_page(resume_id, feedback_id, state="view"):
             feedback.save()
 
         templateData = {
-            'title': 'Your Feedback',
+            'title': 'Votre Feedback',
             'resume': resume,
             'feedback': feedback
         }
@@ -214,7 +215,7 @@ def review(resume_id, feedback_id):
 
             message_to_display = "saved"
             if request.form.get('thank_you') == CONSTANTS.CHOICE_ONE:
-                subject = "[review-me] Thank you!"
+                subject = "[RevueCV] Merci !"
                 host_url = request.url_root
                 user = feedback.volunteer
                 send_mail(subject, user.email, 'thank_you',
@@ -225,15 +226,15 @@ def review(resume_id, feedback_id):
             return redirect('/review/%s' % message_to_display)
 
         except ValidationError as e:
-            print "Error:", e
-            flash("There was an error with the submission. Please try again.")
+            print "Erreur:", e
+            flash("Il y a eu une erreur avec votre soumission. Veuillez réessayer.")
             return redirect('/feedback/%s/%s/review' % (feedback.resume.id, feedback.id))
 
 
     else:
         # Shows the survey page (review)
         templateData = {
-            'title': 'Rate Your Feedback',
+            'title': 'Noter votre feedback',
             'resume': resume,
             'feedback': feedback
         }

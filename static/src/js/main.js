@@ -4,9 +4,9 @@ $('#file').bind('change', function () {
 
     if (size > 1) {
         submit.prop('disabled', true);
-        alert('The file you\'re attaching is bigger than what is allowed. Try attaching a lower sized file.');
+        alert('Le fichier que vous attachez est plus gros que ce qui est autorisé. Essayez de joindre un fichier de taille inférieure.');
     } else if (size < 0.01) {
-        alert('We\'ve detected that the size of this file is less than 10 bytes, are you sure you are uploading the right file?');
+        alert('Nous avons détecté que la taille de ce fichier est inférieure à 10 octets. Êtes-vous sûr de télécharger le bon fichier?');
     } else {
         submit.prop('disabled', false);
     }

@@ -22,8 +22,8 @@
 ## Mail Server Information 
 
 A new email address is registered for the mail server.
-- Username: sig.umsi@gmail.com
-- Password: SocialInnovationsGroup
+- Username: os.environ.get('RCV_MAIL_USER')
+- Password: os.environ.get('RCV_MAIL_PWD')
 
 ## Installation Instructions
 

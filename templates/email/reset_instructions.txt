@@ -1,4 +1,4 @@
-We received a password change request for your Review-me account {{ user.email }}.
+We received a password change request for your RevueCV account {{ user.email }}.
 
 If you made this request, then use the following link: {{ url }}accounts/{{ reset_link }}
 
@@ -7,4 +7,4 @@ This link will work for 2 hours or until you reset your password.
 If you did not ask to change your password, then please ignore this email and no changes will be made to your
 account. Another user may have entered your username by mistake.
 
-The Social Innovations Group
+Université de Lausanne

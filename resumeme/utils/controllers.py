@@ -1,12 +1,13 @@
 from flask import current_app, Blueprint, render_template, flash
 from flask.ext.mail import Message
 from resumeme import mail
+import os
 from os import stat
 from pwd import getpwuid
 
 utils = Blueprint('utils', __name__, template_folder='templates')
 
-default_sender = 'donot-reply@review-me.us'
+default_sender = os.environ.get('RCV_MAIL_USER')
 
 
 def send_mail(subject, recipient, template, **context):

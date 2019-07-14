@@ -1,3 +1,4 @@
+# coding=utf-8
 # Rating Field
 MAX_RATING_LENGTH = 1
 
@@ -5,12 +6,12 @@ MAX_RATING_LENGTH = 1
 MIN_CONTENT_LENGTH = 2
 
 # Section Field
-LEGACY_SECTION = "Overall Feedback"
-FIRST_SECTION = "Overall, the skills and experience listed on this resume match the job description specified."
-SECOND_SECTION = "Formatting Issues"
+LEGACY_SECTION = "Feedback général"
+FIRST_SECTION = "Dans l'ensemble, les compétences et l'expérience énumérées dans ce CV correspondent à la description de travail spécifiée."
+SECOND_SECTION = "Problèmes de formatage"
 THIRD_SECTION = "Education"
-FOURTH_SECTION = "Experience"
-FIFTH_SECTION = "Skills/Misc"
+FOURTH_SECTION = "Expérience"
+FIFTH_SECTION = "Compétences/Divers"
 MAX_SECTION_NAME_LENGTH = 128
 
 # Simple numbers to represent the values

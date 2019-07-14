@@ -101,7 +101,7 @@ def register():
             try:
                 user.save()
                 if login_user(user, remember="no"):
-                    send_mail('Your registration was successful', email, 'welcome', user=user, url=host_url)
+                    send_mail('Votre inscription a réussi', email, 'welcome', user=user, url=host_url)
 
                     if user.role == 'jobseeker':
                         return redirect('/resume/create')
@@ -167,11 +167,11 @@ def activate_account():
 
         if user and user.active is False:
             send_account_activation_instructions(user, host_url)
-            flash("Please check your mail for account activation instructions")
+            flash("Veuillez vérifier votre courrier pour les instructions d'activation de votre compte")
             return render_template("/accounts/activate_notification.html")
         else:
-            flash('Email Not Registered')
-            current_app.logger.error('Email Not Registered')
+            flash('E-mail non enregistré')
+            current_app.logger.error('E-mail non enregistré')
             return redirect('/register-consent')
 
     templateData = {
@@ -193,7 +193,7 @@ def reset_password(token):
 
     if request.method == 'POST' and resetPasswordForm.validate() is False:
         current_app.logger.info(resetPasswordForm.errors)
-        flash('Passwords should match')
+        flash('Les mots de passe doivent correspondre')
 
     elif request.method == 'POST' and resetPasswordForm.validate():
         # generate password hash
@@ -202,9 +202,9 @@ def reset_password(token):
         # update user password
         user.update(password=password_hash)
 
-        send_mail('Password Reset Notice', user.email, 'reset_notice', user=user)
+        send_mail('Avis de réinitialisation de mot de passe', user.email, 'reset_notice', user=user)
 
-        flash('Your Password has been successfully changed.')
+        flash('Votre mot de passe a été changé avec succès.')
         return redirect('/login')
 
     templateData = {
@@ -226,7 +226,7 @@ def activate_account_request(token):
     if request.method == 'POST' and user.active is False:
         user.update(active=True)
 
-        flash('Your Account has been reactivated. You may now log in!')
+        flash('Votre compte a été réactivé. Vous pouvez maintenant vous connecter !')
 
         return redirect('/login')
 
@@ -246,24 +246,24 @@ def profile():
     elif request.method == "POST" and "deactivate" in request.form:
         user.update(active=False)
 
-        send_mail('Account Deactivation Notice', user.email, 'deactivate_notice', user=user)
+        send_mail('Avis de désactivation de compte', user.email, 'deactivate_notice', user=user)
 
-        flash("Your account has been successfully deactivated.")
+        flash("Votre compte a été désactivé avec succès.")
         return redirect('/logout')
 
     elif request.method == "POST" and "editusername" in request.form:
         if request.form['editusername'].strip() == '':
-            flash("Please enter a username")
+            flash("Veuillez entrer un nom d'utilisateur")
         else:
             user.update(username=request.form['editusername'])
-            flash("Your username has been successfully updated")
+            flash("Votre nom d'utilisateur a été mis à jour avec succès")
 
         return redirect('/profile')
 
     if user.role == 'jobseeker':
-        _role = "Job Seeker"
+        _role = "jobseeker"
     else:
-        _role = "Volunteer"
+        _role = "volunteer"
 
     updateProfile = forms.updateProfileForm(csrf_enabled=True)
 
@@ -310,7 +310,7 @@ def send_reset_password_instructions(user, host_url):
     """
     token = generate_token(user)
 
-    send_mail('Review-me password reset', user.email, 'reset_instructions', user=user, reset_link=token,
+    send_mail('Réinitialisation du mot de passe RevueCV', user.email, 'reset_instructions', user=user, reset_link=token,
               url=host_url)
 
 
@@ -321,7 +321,7 @@ def send_account_activation_instructions(user, host_url):
     """
     token = generate_token(user)
 
-    send_mail('Review-me Account Re-activation', user.email, 'activate_instructions', user=user, reset_link=token,
+    send_mail('Réactivation du compte RevueCV', user.email, 'activate_instructions', user=user, reset_link=token,
               url=host_url)
 
 

@@ -1,3 +1,4 @@
+# coding=utf-8
 import os, time, sys
 from datetime import datetime
 from flask import current_app, Blueprint, render_template, abort, request, flash, redirect, url_for, jsonify, \
@@ -66,22 +67,22 @@ def resume_create():
                 resume.user = current_user.get_mongo_doc()
                 resume.save()
 
-                flash('Your resume has been successfully created')
+                flash('Votre CV a été créé avec succès')
                 return redirect('/resume/%s' % resume.id)
             else:
                 resume = models.Resume()
                 resume.title = request.form.get('title', '')
                 resume.content = request.form.get('content')
                 template_data = {
-                    'title': 'Create New Resume',
+                    'title': 'Créer nouveau CV',
                     'resume': resume,
                     'view': False
                 }
-                flash('Please select the correct file type. Allowed: pdf and txt')
+                flash('Veuillez sélectionner le bon format de fichier. Autorisé: pdf et txt')
                 return render_template('resume/edit.html', **template_data)
 
         template_data = {
-            'title': 'Create New Resume',
+            'title': 'Créer nouveau CV',
             'resume': None,
             'view': False
         }
@@ -98,7 +99,7 @@ def edit_resume(resume_id):
 
     if resume and resume.lock is False:
         if resume.user.id != current_user.id:
-            return "Sorry you do not have permission to edit this resume"
+            return "Désolé, vous n’avez pas la permission de modifier ce CV"
 
         if request.method == "POST":
             file = request.files['file']
@@ -124,7 +125,7 @@ def edit_resume(resume_id):
                 flash('Your resume has been successfully updated')
                 return redirect('/resume/%s' % resume.id)
             else:
-                flash('Please select the correct file type. Allowed: pdf and txt')
+                flash('Veuillez sélectionner le bon format de fichier. Autorisé: pdf et txt')
 
         template_data = {
             'title': 'Edit resume',
@@ -135,7 +136,7 @@ def edit_resume(resume_id):
         return render_template('resume/edit.html', **template_data)
 
     else:
-        flash("Editing this entry not allowed. Please create a new one.")
+        flash("La modification de cette entrée n’est pas autorisée. Veuillez en créer un nouveau.")
         return redirect('resume/create')
 
 
@@ -163,8 +164,8 @@ def upload_serve(filename):
 @resume.errorhandler(413)
 def upload_limit(error):
     template_data = {
-        'title': 'Create New Resume',
+        'title': 'Créer nouveau CV',
         'resume': None
     }
-    flash('The file size exceeds the limit allowed. Please upload a resume which is lesser than 1 MB')
+    flash('La taille du fichier excède la limite autorisée. Veuillez choisir un CV inférieur à 1 Mo.')
     return render_template('resume/edit.html', **template_data)

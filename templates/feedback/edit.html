@@ -8,10 +8,10 @@
     <div class="container">
         <div class="row">
             <div class="page-header">
-                <h3>Job Title: {{ resume.title }}
+                <h3>Titre du poste: {{ resume.title }}
 
                     {% if current_user.id == resume.user.id and resume.lock == False %}
-                        <a class="btn btn-primary btn-xs" href="/resume/{{ resume.id }}/edit">edit resume</a>
+                        <a class="btn btn-primary btn-xs" href="/resume/{{ resume.id }}/edit">modifier CV</a>
                     {% endif %}
                 </h3>
             </div>
@@ -27,16 +27,15 @@
                         <legend>
                             {{ title }}
                         </legend>
-                        {% for section, code in [("Overall, the skills and experience listed on this resume match
-                            the job description specified.", 1),("Formatting Issues", 2),("Education", 3),
-                                                   ("Experience", 4),("Skills/Misc", 5)] %}
+                        {% for section, code in [("Dans l'ensemble, les compétences et l'expérience énumérées dans ce CV correspondent à la description de travail précisée.", 1),("Problèmes de formatage", 2),("Éducation", 3),
+                                                   ("Experience", 4),("Compétences/Divers", 5)] %}
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h2 class="panel-title">{{ section }}</h2>
 
                                     <div class="control-group">
                                         <div class="controls">
-                                            <label>Rating</label> {{ macros.stars(code) }}
+                                            <label>Note</label> {{ macros.stars(code) }}
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +43,7 @@
                                 <div class="control-group panel-body">
                                     <div class="controls">
                                             <textarea class="form-control input-md" rows=3 name="content_{{ code }}"
-                                                      id="content_{{ code }}" placeholder="Enter Feedback"
+                                                      id="content_{{ code }}" placeholder="Entrez les commentaires"
                                                       required></textarea>
 
                                     </div>
@@ -52,7 +51,7 @@
                             </div>
                         {% endfor %}
                     </fieldset>
-                    <input type="submit" value="Submit feedback" class="btn btn-primary">
+                    <input type="submit" value="Soumettre des commentaires" class="btn btn-primary">
                 </form>
 
             </div>

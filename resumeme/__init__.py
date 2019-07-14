@@ -37,14 +37,16 @@ login_manager.init_app(app)
 # Adding Mail Support
 # email server
 app.config.update(
-    MAIL_SERVER='smtp.gmail.com',
-    MAIL_PORT=465,
-    MAIL_USE_TLS=False,
+    MAIL_SUPPRESS_SEND=False,
+    TESTING=False,
+    MAIL_DEBUG=True,
     MAIL_USE_SSL=True,
-    MAIL_USERNAME='sig.umsi@gmail.com',
-    MAIL_PASSWORD='SocialInnovationsGroup',
-    DEFAULT_MAIL_SENDER='sig.umsi@gmail.com'
+    MAIL_SERVER="smtp.unil.ch",
+    MAIL_PORT=465,
+    MAIL_USERNAME=os.environ.get('RCV_MAIL_USER'),
+    MAIL_PASSWORD=os.environ.get('RCV_MAIL_PWD')
 )
+
 mail = Mail(app)
 
 app.config['MAX_CONTENT_LENGTH'] = 0.99 * 1024 * 1024
