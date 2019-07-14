@@ -1,4 +1,3 @@
-# coding=utf-8
 import models
 from flask.ext.mongoengine.wtf import model_form
 from wtforms.fields import *
@@ -12,14 +11,16 @@ class SignupForm(user_form):
     password = PasswordField('Password', validators=[validators.DataRequired(),
                                                      validators.EqualTo('confirm', message='Passwords must match')])
     confirm = PasswordField('Repeat Password')
+
     location = StringField('Location')
-    source = SelectField('source', choices=[('', 'Veuillez sélectionner une source'),
+
+    source = SelectField('source', choices=[('', 'Choisissez une source'),
                                             ('searchengine', 'Moteur de recherche'),
-                                            ('friend', 'Ami'),
-                                            ('website', 'Site web'),
-                                            ('print', 'Imprimer l’article / le flyer'),
+                                            ('friend', 'Amies'),
+                                            ('website', 'Site Web'),
+                                            ('print', 'Article'),
                                             ('radio', 'Radio'),
-                                            ('school', 'École ou recherche scolaire')])
+                                            ('school', 'Recherche')])
 
     sourceoptional = StringField()
 
@@ -36,17 +37,17 @@ class ForgotPasswordForm(user_form):
 
 # Password Reset Form
 class ResetPasswordForm(user_form):
-    password = PasswordField('Mot de passe', validators=[validators.DataRequired(),
+    password = PasswordField('Password', validators=[validators.DataRequired(),
                                                      validators.EqualTo('confirm')])
 
-    confirm = PasswordField('Répéter le mot de passe', validators=[validators.DataRequired()])
+    confirm = PasswordField('Repeat Password', validators=[validators.DataRequired()])
 
 
 # Change Role Form
 class updateProfileForm(user_form):
     role = SelectField('role', validators=[validators.DataRequired()])
 
-    editusername = StringField('Nom d\'utilisateur')
+    editusername = StringField('username')
 
 
 # Password Forgot Form
