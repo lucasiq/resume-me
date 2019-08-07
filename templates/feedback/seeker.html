@@ -16,10 +16,10 @@
                 <div class="col-xs-12 col-md-6 col-centered">
 
                     <div class="alert alert-danger center-block" role="alert">
-                        You have no resume uploaded currently. Please Create New Resume.
+                        Vous n'avez pas de CV mis en ligne pour le moment. Veuillez créer un nouveau CV.
                     </div>
                     <p class="text-center">
-                        <a href="/resume/create" class="btn btn-success">Create New Resume</a>
+                        <a href="/resume/create" class="btn btn-success">Créer un nouveau CV</a>
                     </p>
 
                 </div>
@@ -35,7 +35,7 @@
                             <div class="panel-heading">
                                 <h4>
                                     {% if current_user.id == r.user.id and r.lock == False %}
-                                        <a href="/resume/{{ r.id }}/edit" class="btn btn-primary btn-xs">edit</a>
+                                        <a href="/resume/{{ r.id }}/edit" class="btn btn-primary btn-xs">editer</a>
                                     {% endif %}
                                     <a href="/resume/{{ r.id }}">
                                         <small>(resume)</small>
@@ -51,7 +51,7 @@
                                                 <small>(feedback)</small>
                                                 {{ f.last_updated|feedback_datetime }}
                                                 {% if f.viewed == False %}
-                                                    <span class="label label-warning">New</span>
+                                                    <span class="label label-warning">Nouveau</span>
                                                 {% endif %}
                                             </a>
                                         </h5>

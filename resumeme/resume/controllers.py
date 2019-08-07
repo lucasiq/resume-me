@@ -12,6 +12,9 @@ import models
 from resumeme.config import *
 from resumeme.utils.controllers import find_owner
 from resumeme.libs.User import User
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 resume = Blueprint('resume', __name__, template_folder='templates')
 

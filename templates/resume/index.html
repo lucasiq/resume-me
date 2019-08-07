@@ -10,7 +10,7 @@
                         <li>
                             <a href="/resume/{{ resume.id }}">{{ resume.title }}</a>
                             {% if current_user.id == resume.user.id %}
-                                <a href="/resume/{{ resume.id }}/edit"><span class="label label-info">edit</span></a>
+                                <a href="/resume/{{ resume.id }}/edit"><span class="label label-info">editer</span></a>
                             {% endif %}
                         </li>
                     {% endfor %}

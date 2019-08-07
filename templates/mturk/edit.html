@@ -8,10 +8,10 @@
     <div class="container">
         <div class="row">
             <div class="page-header">
-                <h3>Job Title: {{ resume.title }}
+                <h3>Titre du poste : {{ resume.title }}
 
                     {% if current_user.id == resume.user.id and resume.lock == False %}
-                        <a class="btn btn-primary btn-xs" href="/resume/{{ resume.id }}/edit">edit resume</a>
+                        <a class="btn btn-primary btn-xs" href="/resume/{{ resume.id }}/edit">editer CV</a>
                     {% endif %}
                 </h3>
             </div>

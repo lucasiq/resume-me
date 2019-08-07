@@ -10,7 +10,7 @@
                 <h1 class="well">
                     {% if current_user.id == resume.user.id %}
                         {% if resume.lock == False %}
-                            <a href="/resume/{{ resume.id }}/edit" class="btn btn-default btn-lg">edit</a>
+                            <a href="/resume/{{ resume.id }}/edit" class="btn btn-default btn-lg">editer</a>
                         {% endif %}
                     {% endif %}
                     {{ resume.title }}
@@ -30,7 +30,7 @@
                 {% if current_user.id == resume.user.id %}
                     {% if feedback.review_lock == false %}
                         <a href="/feedback/{{ resume.id }}/{{ feedback.id }}/review"
-                           class="btn btn-info btn-md">Rate your feedback</a>
+                           class="btn btn-info btn-md">Évaluer votre feedback</a>
                     {% endif %}
                 {% endif %}
 

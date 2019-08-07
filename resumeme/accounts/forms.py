@@ -16,7 +16,7 @@ class SignupForm(user_form):
 
     source = SelectField('source', choices=[('', 'Choisissez une source'),
                                             ('searchengine', 'Moteur de recherche'),
-                                            ('friend', 'Amies'),
+                                            ('friend', 'Amis'),
                                             ('website', 'Site Web'),
                                             ('print', 'Article'),
                                             ('radio', 'Radio'),

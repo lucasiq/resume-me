@@ -4,7 +4,7 @@
 
     <div class = "instruction">
       <center>
-        <h2>Choose a resume from the following list and click on <b>give feedback</b> to enter a HIT page</h2>
+        <h2>Choisissez un CV dans la liste suivante et cliquez sur <b>Donner un feedback</b> pour entrer dans une page HIT</h2>
       </center>
     </div>
 
@@ -16,11 +16,11 @@
                 <div class="col-md-6 col-md-offset-3 panel panel-default">
                     <h4 class="panel-body text-center">
                         <p><a href="/resume/{{ r.id }}">
-                            <small>(resume)</small>
+                            <small>(CV)</small>
                             {{ r.title }}</a></p>
 
                         <p><a href="/mturk/{{ r.id }}/create" class="btn btn-info btn-md">
-                            give feedback</a></p>
+                            donner feedback</a></p>
                     </h4>
                 </div>
 
@@ -28,7 +28,7 @@
 
                 <div class="col-md-6 col-md-offset-3">
                     <div class="alert alert-danger center-block" role="alert">
-                        There are no resumes' available for review. Please check back later.
+                        Aucun CV n'est disponible pour examen. Revenez plus tard, s'il vous plaît.
                     </div>
                 </div>
 
