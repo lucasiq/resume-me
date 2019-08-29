@@ -7,7 +7,7 @@ from pwd import getpwuid
 
 utils = Blueprint('utils', __name__, template_folder='templates')
 
-default_sender = os.environ.get('RCV_MAIL_USER')
+default_sender = "recherche.emploi@unil.ch"
 
 
 def send_mail(subject, recipient, template, **context):
