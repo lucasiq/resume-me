@@ -34,9 +34,11 @@
                             {{ form.csrf_token }}
 
                             {% if user.role == 'jobseeker' %}
-                                <button type="submit" name="role" class="btn btn-primary btn-sm" value="volunteer">
+                                <!-- 
+                                    <button type="submit" name="role" class="btn btn-primary btn-sm" value="volunteer">
                                     Changer rôle à Bénévole
                                 </button>
+                            -->
                             {% else %}
                                 <button type="submit" name="role" class="btn btn-primary btn-sm" value="jobseeker">
                                     Changer rôle à Chercheur d’emploi

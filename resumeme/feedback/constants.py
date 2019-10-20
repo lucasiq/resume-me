@@ -8,7 +8,7 @@ MIN_CONTENT_LENGTH = 2
 # Section Field
 LEGACY_SECTION = "Feedback général"
 FIRST_SECTION = "Pertinence par rapport au poste"
-SECOND_SECTION = "Problèmes de formatage"
+SECOND_SECTION = "Formatage"
 THIRD_SECTION = "Education"
 FOURTH_SECTION = "Expérience"
 FIFTH_SECTION = "Compétences/Divers"
