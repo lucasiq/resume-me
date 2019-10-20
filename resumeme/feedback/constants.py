@@ -7,7 +7,7 @@ MIN_CONTENT_LENGTH = 2
 
 # Section Field
 LEGACY_SECTION = "Feedback général"
-FIRST_SECTION = "Dans l'ensemble, les compétences et l'expérience énumérées dans ce CV correspondent à la description de travail spécifiée."
+FIRST_SECTION = "Pertinence par rapport au poste"
 SECOND_SECTION = "Problèmes de formatage"
 THIRD_SECTION = "Education"
 FOURTH_SECTION = "Expérience"

@@ -57,3 +57,5 @@ Logs
 node_modules/
 vendor/
 npm-debug.log
+
+.bash_profile
