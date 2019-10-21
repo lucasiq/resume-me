@@ -1,7 +1,7 @@
 # coding=utf-8
 # File upload settings
 ENV = 'dev'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'jpg', 'png', 'jpeg'])
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'jpg', 'png', 'jpeg', 'doc', 'docx', 'rtf', 'odt'])
 
 ###
 # Application wide Error Messages
