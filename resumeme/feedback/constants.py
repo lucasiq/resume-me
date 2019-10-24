@@ -1,6 +1,6 @@
 # coding=utf-8
 # Rating Field
-MAX_RATING_LENGTH = 1
+MAX_RATING_LENGTH = 2
 
 # Content Field
 MIN_CONTENT_LENGTH = 2
